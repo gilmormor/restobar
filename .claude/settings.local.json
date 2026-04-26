@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv C:/laragon/www/restobar/laravel/* C:/laragon/www/restobar/)",
+      "Bash(mv C:/laragon/www/restobar/laravel/.* C:/laragon/www/restobar/)"
+    ]
+  }
+}
