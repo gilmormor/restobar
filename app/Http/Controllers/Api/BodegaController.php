@@ -11,9 +11,15 @@ class BodegaController extends Controller
 {
     use OptimisticLocking;
 
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(Bodega::with('sucursales')->orderBy('nombre')->get());
+        $q = Bodega::with('sucursales')->orderBy('nombre');
+
+        if ($request->filtraSucursal()) {
+            $q->whereHas('sucursales', fn($s) => $s->where('sucursal_id', $request->sucursalId()));
+        }
+
+        return response()->json($q->get());
     }
 
     public function store(Request $request)
@@ -22,11 +28,9 @@ class BodegaController extends Controller
             'nombre'      => 'required|string|max:150',
             'descripcion' => 'nullable|string',
             'activa'      => 'boolean',
-            // Optional: link to a sucursal on creation
-            'sucursal_id' => 'nullable|exists:sucursales,id',
         ]);
 
-        $sucursalId = $data['sucursal_id'] ?? null;
+        $sucursalId = $request->sucursalId();
         unset($data['sucursal_id']);
 
         $bodega = Bodega::create($data);

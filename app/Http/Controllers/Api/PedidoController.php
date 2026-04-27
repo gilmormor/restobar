@@ -11,25 +11,29 @@ use Illuminate\Http\Request;
 
 class PedidoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(
-            Pedido::with(['mesa', 'usuario', 'items.plato'])
-                ->orderByDesc('created_at')
-                ->get()
-        );
+        $q = Pedido::with(['mesa', 'usuario', 'items.plato'])
+            ->orderByDesc('created_at');
+
+        if ($request->filtraSucursal()) {
+            $q->where('sucursal_id', $request->sucursalId());
+        }
+
+        return response()->json($q->get());
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
-            'sucursal_id' => 'required|exists:sucursales,id',
             'mesa_id'     => 'nullable|exists:mesas,id',
             'usuario_id'  => 'required|exists:usuarios,id',
             'tipo'        => 'in:mesa,domicilio,para_llevar',
             'num_personas'=> 'integer|min:1',
             'notas'       => 'nullable|string',
         ]);
+
+        $data['sucursal_id'] = $request->sucursalId();
 
         $pedido = Pedido::create($data);
 

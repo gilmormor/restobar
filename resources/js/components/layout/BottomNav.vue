@@ -69,12 +69,22 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useAuthStore } from '../../stores/auth.js';
 
 const route      = useRoute();
+const router     = useRouter();
 const auth       = useAuthStore();
 const mostrarMas = ref(false);
+
+function routeValida(ruta) {
+  if (!ruta || ruta === '#') return false;
+  try {
+    return router.resolve({ name: ruta }).matched.length > 0;
+  } catch {
+    return false;
+  }
+}
 
 // ── Mapa de iconos ────────────────────────────────────────────────────────────
 const iconMap = {
@@ -88,6 +98,11 @@ const iconMap = {
   UsersIcon:          '👥',
   ChartBarIcon:       '📈',
   Cog6ToothIcon:      '⚙️',
+  ShieldCheckIcon:    '🛡️',
+  UserCircleIcon:     '👤',
+  KeyIcon:            '🔑',
+  LockClosedIcon:     '🔒',
+  Bars3Icon:          '☰',
 };
 
 // Etiquetas cortas para la barra inferior (espacio limitado)
@@ -108,14 +123,31 @@ function resolveIcon(icono) {
   return iconMap[icono] ?? icono;
 }
 
+// ── Aplana todos los niveles y devuelve solo ítems con ruta válida ────────────
+function aplanarItems(items) {
+  const result = [];
+  for (const item of items) {
+    if (item.ruta) {
+      result.push(item);
+    }
+    if (item.hijos?.length) {
+      result.push(...aplanarItems(item.hijos));
+    }
+  }
+  return result;
+}
+
 // ── Items calculados desde el store ──────────────────────────────────────────
 const allItems = computed(() =>
-  auth.menuItems
-    .filter(item => !!item.ruta)
+  aplanarItems(auth.menuItems)
+    .filter(item => routeValida(item.ruta))
     .map(item => ({
       slug:       item.slug,
       label:      item.nombre,
-      shortLabel: shortLabelMap[item.ruta] ?? item.nombre,
+      shortLabel: (() => {
+        const l = shortLabelMap[item.ruta] ?? item.nombre ?? '';
+        return l.length > 8 ? l.slice(0, 7) + '…' : l;
+      })(),
       icon:       resolveIcon(item.icono),
       routeName:  item.ruta,
       to:         { name: item.ruta },

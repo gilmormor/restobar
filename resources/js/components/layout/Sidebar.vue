@@ -52,7 +52,7 @@
         class="border-t border-gray-700 transition-all duration-300 overflow-hidden"
         :class="isExpanded ? 'max-h-16 opacity-100 py-4 px-4' : 'max-h-0 opacity-0'"
       >
-        <p class="text-xs text-gray-500 whitespace-nowrap">v1.0.0 — Laravel 13 + Vue 3</p>
+        <p class="text-xs text-gray-500 whitespace-nowrap">v1.0.0</p>
       </div>
     </div>
   </aside>

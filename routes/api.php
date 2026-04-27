@@ -30,7 +30,7 @@ Route::post('auth/logout', [LoginController::class, 'logout'])->middleware('auth
 Route::get('auth/me',      [LoginController::class, 'me'])->middleware('auth:sanctum');
 
 // ─── Protected routes ────────────────────────────────────────────────────────
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware(['auth:sanctum', 'sucursal'])->group(function () {
 
     // Dynamic menu for current user
     Route::get('auth/menu', [MenuController::class, 'menuParaUsuario']);

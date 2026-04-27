@@ -12,16 +12,23 @@ class IngredienteController extends Controller
 {
     use OptimisticLocking;
 
-    public function index()
+    public function index(Request $request)
     {
+        $sucursalId   = $request->sucursalId();
+        $filtraSucursal = $request->filtraSucursal();
+
         return response()->json(
-            Ingrediente::with('bodegas')
-                ->orderBy('nombre')
-                ->get()
-                ->map(function ($ing) {
-                    $ing->stock_total = $ing->bodegas->sum('pivot.stock_actual');
-                    return $ing;
-                })
+            Ingrediente::with(['bodegas' => function ($q) use ($filtraSucursal, $sucursalId) {
+                if ($filtraSucursal) {
+                    $q->whereHas('sucursales', fn($s) => $s->where('sucursal_id', $sucursalId));
+                }
+            }])
+            ->orderBy('nombre')
+            ->get()
+            ->map(function ($ing) {
+                $ing->stock_total = $ing->bodegas->sum('pivot.stock_actual');
+                return $ing;
+            })
         );
     }
 

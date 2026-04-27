@@ -12,9 +12,15 @@ class MesaController extends Controller
 {
     use OptimisticLocking;
 
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(Mesa::with(['ambiente', 'pedidoActivo'])->get());
+        $q = Mesa::with(['ambiente', 'pedidoActivo']);
+
+        if ($request->filtraSucursal()) {
+            $q->whereHas('ambiente', fn($a) => $a->where('sucursal_id', $request->sucursalId()));
+        }
+
+        return response()->json($q->get());
     }
 
     public function store(Request $request)

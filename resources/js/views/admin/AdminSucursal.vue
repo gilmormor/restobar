@@ -43,7 +43,6 @@
           <thead class="bg-gray-50 text-gray-500 uppercase text-xs tracking-wide">
             <tr>
               <th class="px-4 py-3 text-left">Nombre</th>
-              <th class="px-4 py-3 text-left">Empresa</th>
               <th class="px-4 py-3 text-left">Dirección</th>
               <th class="px-4 py-3 text-left">Teléfono</th>
               <th class="px-4 py-3 text-left">Ubicación</th>
@@ -57,7 +56,6 @@
                 <div class="font-semibold text-gray-800">{{ s.nombre }}</div>
                 <div v-if="s.abrev" class="text-xs text-gray-400 font-mono">{{ s.abrev }}</div>
               </td>
-              <td class="px-4 py-3 text-gray-600">{{ s.empresa?.nombre_comercial ?? s.empresa?.nombre ?? '—' }}</td>
               <td class="px-4 py-3 text-gray-500 max-w-[160px] truncate">{{ s.direccion || '—' }}</td>
               <td class="px-4 py-3 text-gray-500">{{ s.telefonos || s.telefono || '—' }}</td>
               <td class="px-4 py-3 text-gray-500 text-xs">
@@ -142,19 +140,6 @@
                          class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm font-mono
                                 focus:outline-none focus:ring-2 focus:ring-orange-400"/>
                 </div>
-              </div>
-
-              <!-- Empresa -->
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Empresa</label>
-                <select v-model="form.empresa_id"
-                        class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm
-                               focus:outline-none focus:ring-2 focus:ring-orange-400">
-                  <option :value="null">— Sin empresa —</option>
-                  <option v-for="e in empresas" :key="e.id" :value="e.id">
-                    {{ e.nombre_comercial || e.nombre }}
-                  </option>
-                </select>
               </div>
 
               <!-- Dirección y teléfonos -->
@@ -282,7 +267,6 @@ import { ref, computed, onMounted } from 'vue';
 import axios from 'axios';
 
 const sucursales        = ref([]);
-const empresas          = ref([]);
 const paises            = ref([]);
 const regiones          = ref([]);
 const provincias        = ref([]);
@@ -300,8 +284,7 @@ const error             = ref('');
 const formVacio = () => ({
   id: null, nombre: '', abrev: '', direccion: '', telefono: '',
   telefonos: '', email: '', logo: null, activa: true,
-  empresa_id: null, pais_id: null, region_id: null,
-  provincia_id: null, comuna_id: null,
+  pais_id: null, region_id: null, provincia_id: null, comuna_id: null,
 });
 
 const form = ref(formVacio());
@@ -366,13 +349,11 @@ async function onProvinciaChange() {
 async function cargar() {
   cargando.value = true;
   try {
-    const [rSuc, rEmp, rPaises] = await Promise.all([
+    const [rSuc, rPaises] = await Promise.all([
       axios.get('/api/sucursales'),
-      axios.get('/api/empresas'),
       axios.get('/api/geo/paises'),
     ]);
     sucursales.value = rSuc.data;
-    empresas.value   = rEmp.data;
     paises.value     = rPaises.data;
   } finally {
     cargando.value = false;
@@ -400,7 +381,6 @@ async function abrirEditar(s) {
     email:        s.email        ?? '',
     logo:         s.logo         ?? null,
     activa:       s.activa,
-    empresa_id:   s.empresa_id   ?? null,
     pais_id:      null,
     region_id:    s.region_id    ?? null,
     provincia_id: s.provincia_id ?? null,
@@ -453,7 +433,6 @@ async function guardar() {
       telefonos:    form.value.telefonos    || null,
       email:        form.value.email        || null,
       activa:       form.value.activa,
-      empresa_id:   form.value.empresa_id,
       region_id:    form.value.region_id,
       provincia_id: form.value.provincia_id,
       comuna_id:    form.value.comuna_id,

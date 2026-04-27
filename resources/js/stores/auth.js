@@ -5,12 +5,13 @@ import axios from 'axios';
 export const useAuthStore = defineStore('auth', () => {
 
     // ── Estado ────────────────────────────────────────────────────────────────
-    const token       = ref(localStorage.getItem('token') || null);
-    const usuario     = ref(JSON.parse(localStorage.getItem('usuario') || 'null'));
-    const rol         = ref(JSON.parse(localStorage.getItem('rol')     || 'null'));
-    const permisos    = ref(JSON.parse(localStorage.getItem('permisos')|| '[]'));
-    const sucursalId  = ref(parseInt(localStorage.getItem('sucursal_id') || '0') || null);
-    const menuItems   = ref([]);
+    const token          = ref(localStorage.getItem('token') || null);
+    const usuario        = ref(JSON.parse(localStorage.getItem('usuario') || 'null'));
+    const rol            = ref(JSON.parse(localStorage.getItem('rol')     || 'null'));
+    const permisos       = ref(JSON.parse(localStorage.getItem('permisos')|| '[]'));
+    const sucursalId     = ref(parseInt(localStorage.getItem('sucursal_id') || '0') || null);
+    const sucursalNombre = ref(localStorage.getItem('sucursal_nombre') || null);
+    const menuItems      = ref([]);
 
     // ── Computadas ────────────────────────────────────────────────────────────
     const estaAutenticado = computed(() => !!token.value);
@@ -29,25 +30,28 @@ export const useAuthStore = defineStore('auth', () => {
     }
 
     function _persistir() {
-        localStorage.setItem('token',       token.value || '');
-        localStorage.setItem('usuario',     JSON.stringify(usuario.value));
-        localStorage.setItem('rol',         JSON.stringify(rol.value));
-        localStorage.setItem('permisos',    JSON.stringify(permisos.value));
-        localStorage.setItem('sucursal_id', sucursalId.value || '');
+        localStorage.setItem('token',            token.value || '');
+        localStorage.setItem('usuario',          JSON.stringify(usuario.value));
+        localStorage.setItem('rol',              JSON.stringify(rol.value));
+        localStorage.setItem('permisos',         JSON.stringify(permisos.value));
+        localStorage.setItem('sucursal_id',      sucursalId.value || '');
+        localStorage.setItem('sucursal_nombre',  sucursalNombre.value || '');
     }
 
     function _limpiar() {
-        token.value      = null;
-        usuario.value    = null;
-        rol.value        = null;
-        permisos.value   = [];
-        sucursalId.value = null;
-        menuItems.value  = [];
+        token.value          = null;
+        usuario.value        = null;
+        rol.value            = null;
+        permisos.value       = [];
+        sucursalId.value     = null;
+        sucursalNombre.value = null;
+        menuItems.value      = [];
         localStorage.removeItem('token');
         localStorage.removeItem('usuario');
         localStorage.removeItem('rol');
         localStorage.removeItem('permisos');
         localStorage.removeItem('sucursal_id');
+        localStorage.removeItem('sucursal_nombre');
     }
 
     function _setAxiosToken(tkn) {
@@ -77,7 +81,8 @@ export const useAuthStore = defineStore('auth', () => {
         usuario.value    = data.usuario;
         rol.value        = data.rol;
         permisos.value   = data.permisos;
-        sucursalId.value = data.sucursal_id;
+        sucursalId.value     = data.sucursal_id;
+        sucursalNombre.value = data.sucursal_nombre ?? null;
 
         _persistir();
         _setAxiosToken(data.token);
@@ -110,7 +115,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     return {
         // estado
-        token, usuario, rol, permisos, sucursalId, menuItems,
+        token, usuario, rol, permisos, sucursalId, sucursalNombre, menuItems,
         // computadas
         estaAutenticado, esSuperadmin, nombreCompleto,
         // acciones

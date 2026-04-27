@@ -39,6 +39,17 @@
         <div class="flex items-center gap-2 md:gap-3 flex-shrink-0">
           <span class="hidden lg:block text-sm text-gray-500">{{ fecha }}</span>
 
+          <!-- Sucursal activa -->
+          <div v-if="auth.sucursalNombre"
+               class="hidden md:flex items-center gap-1.5 bg-orange-50 border border-orange-200
+                      text-orange-700 text-xs font-medium px-2.5 py-1 rounded-lg">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+            {{ auth.sucursalNombre }}
+          </div>
+
           <!-- Info usuario -->
           <div class="flex items-center gap-2">
             <div class="text-right hidden sm:block">

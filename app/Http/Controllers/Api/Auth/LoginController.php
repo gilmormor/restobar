@@ -66,18 +66,23 @@ class LoginController extends Controller
                 : $rol->permisos()->pluck('slug')->toArray();
         }
 
+        $sucursalNombre = $sucursalId
+            ? \App\Models\Sucursal::find($sucursalId)?->nombre
+            : null;
+
         return response()->json([
-            'token'      => $token,
-            'usuario'    => [
+            'token'           => $token,
+            'usuario'         => [
                 'id'       => $user->id,
                 'nombre'   => $user->nombre,
                 'apellido' => $user->apellido,
                 'usuario'  => $user->usuario,
                 'foto'     => $user->foto,
             ],
-            'sucursal_id' => $sucursalId,
-            'rol'         => $rol ? ['id' => $rol->id, 'nombre' => $rol->nombre, 'es_superadmin' => $rol->es_superadmin] : null,
-            'permisos'    => $permisos,
+            'sucursal_id'     => $sucursalId,
+            'sucursal_nombre' => $sucursalNombre,
+            'rol'             => $rol ? ['id' => $rol->id, 'nombre' => $rol->nombre, 'es_superadmin' => $rol->es_superadmin] : null,
+            'permisos'        => $permisos,
         ]);
     }
 

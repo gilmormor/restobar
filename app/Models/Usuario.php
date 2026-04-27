@@ -77,6 +77,17 @@ class Usuario extends Authenticatable
         return $rol->permisos()->where('slug', $ability)->exists();
     }
 
+    /**
+     * ¿El usuario es superadmin en alguna sucursal?
+     */
+    public function esSuperadmin(): bool
+    {
+        return $this->sucursales()
+            ->wherePivot('activo', true)
+            ->get()
+            ->contains(fn($s) => Rol::find($s->pivot->rol_id)?->es_superadmin === true);
+    }
+
     public function getFullNameAttribute(): string
     {
         return "{$this->nombre} {$this->apellido}";
