@@ -1,6 +1,6 @@
 {
-  "_AppButton-Rorwpj9k.js": {
-    "file": "assets/AppButton-Rorwpj9k.js",
+  "_AppButton-Bb3W5cdy.js": {
+    "file": "assets/AppButton-Bb3W5cdy.js",
     "name": "AppButton",
     "imports": [
       "resources/js/app.js",
@@ -12,7 +12,7 @@
     "name": "runtime-core.esm-bundler"
   },
   "resources/css/app.css": {
-    "file": "assets/app-BUpH4Oxy.css",
+    "file": "assets/app-Fo4BoQDw.css",
     "name": "app",
     "names": [
       "app.css"
@@ -21,7 +21,7 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-DwXsPzV_.js",
+    "file": "assets/app-C5GKRaWl.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -43,14 +43,17 @@
       "resources/js/views/admin/AdminRol.vue",
       "resources/js/views/admin/AdminMenuRol.vue",
       "resources/js/views/admin/AdminPermiso.vue",
-      "resources/js/views/admin/AdminPermisoRol.vue"
+      "resources/js/views/admin/AdminPermisoRol.vue",
+      "resources/js/views/admin/AdminEmpresa.vue",
+      "resources/js/views/admin/AdminMoneda.vue",
+      "resources/js/views/admin/AdminSucursal.vue"
     ],
     "css": [
       "assets/app-BI2vTFOu.css"
     ]
   },
   "resources/js/views/Caja.vue": {
-    "file": "assets/Caja-CoiPdIL4.js",
+    "file": "assets/Caja-DrQG97nq.js",
     "name": "Caja",
     "src": "resources/js/views/Caja.vue",
     "isDynamicEntry": true,
@@ -60,7 +63,7 @@
     ]
   },
   "resources/js/views/Cocina.vue": {
-    "file": "assets/Cocina-YBAGLqRE.js",
+    "file": "assets/Cocina-CNxuBVSo.js",
     "name": "Cocina",
     "src": "resources/js/views/Cocina.vue",
     "isDynamicEntry": true,
@@ -79,7 +82,7 @@
     ]
   },
   "resources/js/views/Empleados.vue": {
-    "file": "assets/Empleados-BXxmZ8oS.js",
+    "file": "assets/Empleados-A18SDGTV.js",
     "name": "Empleados",
     "src": "resources/js/views/Empleados.vue",
     "isDynamicEntry": true,
@@ -89,7 +92,7 @@
     ]
   },
   "resources/js/views/Inventario.vue": {
-    "file": "assets/Inventario-0EYGAEio.js",
+    "file": "assets/Inventario-BTIDhNim.js",
     "name": "Inventario",
     "src": "resources/js/views/Inventario.vue",
     "isDynamicEntry": true,
@@ -99,32 +102,32 @@
     ]
   },
   "resources/js/views/Menu.vue": {
-    "file": "assets/Menu-Boo3njge.js",
+    "file": "assets/Menu-DWR__pVm.js",
     "name": "Menu",
     "src": "resources/js/views/Menu.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_runtime-core.esm-bundler-Dh-vcRWy.js",
-      "_AppButton-Rorwpj9k.js"
+      "_AppButton-Bb3W5cdy.js"
     ],
     "css": [
       "assets/Menu-BbPIhjLN.css"
     ]
   },
   "resources/js/views/Mesas.vue": {
-    "file": "assets/Mesas-DQ_-y_r6.js",
+    "file": "assets/Mesas-BIkxpUP4.js",
     "name": "Mesas",
     "src": "resources/js/views/Mesas.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_runtime-core.esm-bundler-Dh-vcRWy.js",
-      "_AppButton-Rorwpj9k.js"
+      "_AppButton-Bb3W5cdy.js"
     ]
   },
   "resources/js/views/Pedidos.vue": {
-    "file": "assets/Pedidos-C-wFTx3k.js",
+    "file": "assets/Pedidos-DD2EIQHJ.js",
     "name": "Pedidos",
     "src": "resources/js/views/Pedidos.vue",
     "isDynamicEntry": true,
@@ -134,7 +137,7 @@
     ]
   },
   "resources/js/views/Reportes.vue": {
-    "file": "assets/Reportes-DRClN0mC.js",
+    "file": "assets/Reportes-BV7oBYa5.js",
     "name": "Reportes",
     "src": "resources/js/views/Reportes.vue",
     "isDynamicEntry": true,
@@ -143,8 +146,21 @@
       "_runtime-core.esm-bundler-Dh-vcRWy.js"
     ]
   },
+  "resources/js/views/admin/AdminEmpresa.vue": {
+    "file": "assets/AdminEmpresa-CQG-gIOY.js",
+    "name": "AdminEmpresa",
+    "src": "resources/js/views/admin/AdminEmpresa.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_runtime-core.esm-bundler-Dh-vcRWy.js"
+    ],
+    "css": [
+      "assets/AdminEmpresa-DsCs_nBT.css"
+    ]
+  },
   "resources/js/views/admin/AdminMenu.vue": {
-    "file": "assets/AdminMenu-Dto1NJe8.js",
+    "file": "assets/AdminMenu-DwUSwYi7.js",
     "name": "AdminMenu",
     "src": "resources/js/views/admin/AdminMenu.vue",
     "isDynamicEntry": true,
@@ -157,7 +173,7 @@
     ]
   },
   "resources/js/views/admin/AdminMenuRol.vue": {
-    "file": "assets/AdminMenuRol-CcqjmB0Z.js",
+    "file": "assets/AdminMenuRol-DQE8S0TG.js",
     "name": "AdminMenuRol",
     "src": "resources/js/views/admin/AdminMenuRol.vue",
     "isDynamicEntry": true,
@@ -166,8 +182,21 @@
       "_runtime-core.esm-bundler-Dh-vcRWy.js"
     ]
   },
+  "resources/js/views/admin/AdminMoneda.vue": {
+    "file": "assets/AdminMoneda-D2OLtGvo.js",
+    "name": "AdminMoneda",
+    "src": "resources/js/views/admin/AdminMoneda.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_runtime-core.esm-bundler-Dh-vcRWy.js"
+    ],
+    "css": [
+      "assets/AdminMoneda-q9o5aSXr.css"
+    ]
+  },
   "resources/js/views/admin/AdminPermiso.vue": {
-    "file": "assets/AdminPermiso-DfWDgSiC.js",
+    "file": "assets/AdminPermiso-DfIO2Gac.js",
     "name": "AdminPermiso",
     "src": "resources/js/views/admin/AdminPermiso.vue",
     "isDynamicEntry": true,
@@ -180,7 +209,7 @@
     ]
   },
   "resources/js/views/admin/AdminPermisoRol.vue": {
-    "file": "assets/AdminPermisoRol-Z3XChChC.js",
+    "file": "assets/AdminPermisoRol-D0HnYuFh.js",
     "name": "AdminPermisoRol",
     "src": "resources/js/views/admin/AdminPermisoRol.vue",
     "isDynamicEntry": true,
@@ -190,7 +219,7 @@
     ]
   },
   "resources/js/views/admin/AdminRol.vue": {
-    "file": "assets/AdminRol-DxZN6UJ-.js",
+    "file": "assets/AdminRol-B4QRGkq_.js",
     "name": "AdminRol",
     "src": "resources/js/views/admin/AdminRol.vue",
     "isDynamicEntry": true,
@@ -202,8 +231,21 @@
       "assets/AdminRol-CBDjofDv.css"
     ]
   },
+  "resources/js/views/admin/AdminSucursal.vue": {
+    "file": "assets/AdminSucursal-D4O65j_d.js",
+    "name": "AdminSucursal",
+    "src": "resources/js/views/admin/AdminSucursal.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_runtime-core.esm-bundler-Dh-vcRWy.js"
+    ],
+    "css": [
+      "assets/AdminSucursal-B0XtgS4T.css"
+    ]
+  },
   "resources/js/views/admin/AdminUsuario.vue": {
-    "file": "assets/AdminUsuario-Bk9U5OM1.js",
+    "file": "assets/AdminUsuario-BkiOvLIN.js",
     "name": "AdminUsuario",
     "src": "resources/js/views/admin/AdminUsuario.vue",
     "isDynamicEntry": true,

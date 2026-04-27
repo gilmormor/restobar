@@ -61,6 +61,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { useAuthStore } from '../../stores/auth.js';
+import { useRouter } from 'vue-router';
 import SidebarItem from './SidebarItem.vue';
 
 const props = defineProps({
@@ -68,6 +69,7 @@ const props = defineProps({
 });
 
 const auth     = useAuthStore();
+const router   = useRouter();
 const hovering = ref(false);
 
 const isExpanded = computed(() => !props.collapsed || hovering.value);
@@ -99,25 +101,42 @@ function resolveIcon(icono) {
   return iconMap[icono] ?? icono;
 }
 
+function routeValida(ruta) {
+  if (!ruta) return false;
+  try {
+    const resolved = router.resolve({ name: ruta });
+    // matched.length > 0 significa que la ruta existe en el router
+    return Array.isArray(resolved?.matched) && resolved.matched.length > 0;
+  } catch {
+    return false;
+  }
+}
+
+// Debug temporal: lista rutas disponibles en consola (quitar en producción)
+if (import.meta.env.DEV) {
+  console.log('[Sidebar] Rutas registradas:',
+    router.getRoutes().map(r => r.name).filter(Boolean));
+}
+
 function mapItem(item) {
   return {
     slug:      item.slug,
     label:     item.nombre,
     icon:      resolveIcon(item.icono),
     routeName: item.ruta ?? null,
-    to:        item.ruta ? { name: item.ruta } : null,
+    to:        routeValida(item.ruta) ? { name: item.ruta } : null,
     hijos:     (item.hijos ?? []).map(h => ({
       slug:      h.slug,
       label:     h.nombre,
       icon:      resolveIcon(h.icono),
       routeName: h.ruta ?? null,
-      to:        h.ruta ? { name: h.ruta } : null,
+      to:        routeValida(h.ruta) ? { name: h.ruta } : null,
       hijos:     (h.hijos ?? []).map(n => ({
         slug:      n.slug,
         label:     n.nombre,
         icon:      resolveIcon(n.icono),
         routeName: n.ruta ?? null,
-        to:        n.ruta ? { name: n.ruta } : null,
+        to:        routeValida(n.ruta) ? { name: n.ruta } : null,
         hijos:     [],
       })),
     })),

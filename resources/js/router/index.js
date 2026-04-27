@@ -20,8 +20,11 @@ const AdminUsuario   = () => import('../views/admin/AdminUsuario.vue');
 const AdminMenu      = () => import('../views/admin/AdminMenu.vue');
 const AdminRol       = () => import('../views/admin/AdminRol.vue');
 const AdminMenuRol   = () => import('../views/admin/AdminMenuRol.vue');
-const AdminPermiso   = () => import('../views/admin/AdminPermiso.vue');
+const AdminPermiso    = () => import('../views/admin/AdminPermiso.vue');
 const AdminPermisoRol = () => import('../views/admin/AdminPermisoRol.vue');
+const AdminEmpresa    = () => import('../views/admin/AdminEmpresa.vue');
+const AdminMoneda     = () => import('../views/admin/AdminMoneda.vue');
+const AdminSucursal   = () => import('../views/admin/AdminSucursal.vue');
 
 const routes = [
     // ── Pública ──────────────────────────────────────────────────────────────
@@ -50,6 +53,9 @@ const routes = [
     { path: '/admin/menu-rol',    name: 'admin-menu-rol',    component: AdminMenuRol    },
     { path: '/admin/permiso',     name: 'admin-permiso',     component: AdminPermiso    },
     { path: '/admin/permiso-rol', name: 'admin-permiso-rol', component: AdminPermisoRol },
+    { path: '/admin/empresa',     name: 'admin-empresa',     component: AdminEmpresa    },
+    { path: '/admin/moneda',      name: 'admin-moneda',      component: AdminMoneda     },
+    { path: '/admin/sucursal',    name: 'admin-sucursal',    component: AdminSucursal   },
 
     // ── Catch-all ─────────────────────────────────────────────────────────────
     { path: '/:pathMatch(.*)*', redirect: '/' },
