@@ -9,7 +9,8 @@
       "Bash(php83 artisan *)",
       "PowerShell(cmd /c \"dir C:\\\\laragon\")",
       "PowerShell(cmd /c \"C:\\\\laragon\\\\bin\\\\php\\\\php-8.3.30-nts-Win32-vs16-x64\\\\php.exe C:\\\\laragon\\\\www\\\\restobar\\\\artisan tinker --execute=\"\"$u = App\\\\Models\\\\Usuario::where\\('usuario','admin'\\)->first\\(\\); echo $u->nombre . ' ' . $u->apellido . PHP_EOL; $r = $u->rolEnSucursal\\(1\\); echo 'Rol: ' . \\($r ? $r->nombre : 'none'\\) . PHP_EOL; echo 'Superadmin: ' . \\($r && $r->es_superadmin ? 'SI' : 'NO'\\) . PHP_EOL;\"\" 2>&1\")",
-      "mcp__Claude_in_Chrome__tabs_context_mcp"
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(git add *)"
     ]
   }
 }
