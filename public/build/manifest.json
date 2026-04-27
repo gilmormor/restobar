@@ -1,0 +1,196 @@
+{
+  "_AppButton-CaCv48gg.js": {
+    "file": "assets/AppButton-CaCv48gg.js",
+    "name": "AppButton",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-B6mQKAlL.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-K1vfNait.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/views/Dashboard.vue",
+      "resources/js/views/Mesas.vue",
+      "resources/js/views/Pedidos.vue",
+      "resources/js/views/Menu.vue",
+      "resources/js/views/Inventario.vue",
+      "resources/js/views/Empleados.vue",
+      "resources/js/views/Caja.vue",
+      "resources/js/views/Reportes.vue",
+      "resources/js/views/Cocina.vue",
+      "resources/js/views/admin/AdminUsuario.vue",
+      "resources/js/views/admin/AdminMenu.vue",
+      "resources/js/views/admin/AdminRol.vue",
+      "resources/js/views/admin/AdminMenuRol.vue",
+      "resources/js/views/admin/AdminPermiso.vue",
+      "resources/js/views/admin/AdminPermisoRol.vue"
+    ],
+    "css": [
+      "assets/app-BI2vTFOu.css"
+    ]
+  },
+  "resources/js/views/Caja.vue": {
+    "file": "assets/Caja-BsxUjB3Y.js",
+    "name": "Caja",
+    "src": "resources/js/views/Caja.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/Cocina.vue": {
+    "file": "assets/Cocina-B0biQNWd.js",
+    "name": "Cocina",
+    "src": "resources/js/views/Cocina.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/Dashboard.vue": {
+    "file": "assets/Dashboard-4_85kd4W.js",
+    "name": "Dashboard",
+    "src": "resources/js/views/Dashboard.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/Empleados.vue": {
+    "file": "assets/Empleados-Douk7wbN.js",
+    "name": "Empleados",
+    "src": "resources/js/views/Empleados.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/Inventario.vue": {
+    "file": "assets/Inventario--4eNxGjb.js",
+    "name": "Inventario",
+    "src": "resources/js/views/Inventario.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/Menu.vue": {
+    "file": "assets/Menu-X2Tjq6yz.js",
+    "name": "Menu",
+    "src": "resources/js/views/Menu.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AppButton-CaCv48gg.js"
+    ],
+    "css": [
+      "assets/Menu-BbPIhjLN.css"
+    ]
+  },
+  "resources/js/views/Mesas.vue": {
+    "file": "assets/Mesas-CiU4qt1y.js",
+    "name": "Mesas",
+    "src": "resources/js/views/Mesas.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AppButton-CaCv48gg.js"
+    ]
+  },
+  "resources/js/views/Pedidos.vue": {
+    "file": "assets/Pedidos-DNmaLSFa.js",
+    "name": "Pedidos",
+    "src": "resources/js/views/Pedidos.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/Reportes.vue": {
+    "file": "assets/Reportes-CBzW8Pat.js",
+    "name": "Reportes",
+    "src": "resources/js/views/Reportes.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/admin/AdminMenu.vue": {
+    "file": "assets/AdminMenu-CsVTaI7M.js",
+    "name": "AdminMenu",
+    "src": "resources/js/views/admin/AdminMenu.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/AdminMenu-DIJuaq0z.css"
+    ]
+  },
+  "resources/js/views/admin/AdminMenuRol.vue": {
+    "file": "assets/AdminMenuRol-DPmLBRYV.js",
+    "name": "AdminMenuRol",
+    "src": "resources/js/views/admin/AdminMenuRol.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/admin/AdminPermiso.vue": {
+    "file": "assets/AdminPermiso-vsSE1Xpz.js",
+    "name": "AdminPermiso",
+    "src": "resources/js/views/admin/AdminPermiso.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/AdminPermiso-DwUyIcEm.css"
+    ]
+  },
+  "resources/js/views/admin/AdminPermisoRol.vue": {
+    "file": "assets/AdminPermisoRol-BNVGxuOr.js",
+    "name": "AdminPermisoRol",
+    "src": "resources/js/views/admin/AdminPermisoRol.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/views/admin/AdminRol.vue": {
+    "file": "assets/AdminRol-BaDBknfa.js",
+    "name": "AdminRol",
+    "src": "resources/js/views/admin/AdminRol.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/AdminRol-CBDjofDv.css"
+    ]
+  },
+  "resources/js/views/admin/AdminUsuario.vue": {
+    "file": "assets/AdminUsuario-DC59dLCx.js",
+    "name": "AdminUsuario",
+    "src": "resources/js/views/admin/AdminUsuario.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/AdminUsuario-BoC0DWmt.css"
+    ]
+  }
+}

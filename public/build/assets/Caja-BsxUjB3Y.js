@@ -1,0 +1,1 @@
+import{T as e,d as t,m as n,t as r}from"./app-K1vfNait.js";var i={},a={class:`bg-white rounded-xl shadow-sm p-6`};function o(r,i){return e(),n(`div`,a,[...i[0]||=[t(`h3`,{class:`text-lg font-semibold text-gray-700 mb-2`},`💰 Caja y Facturación`,-1),t(`p`,{class:`text-gray-500`},`Módulo en construcción...`,-1)]])}var s=r(i,[[`render`,o]]);export{s as default};
