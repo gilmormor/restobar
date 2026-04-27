@@ -199,6 +199,9 @@ import { ref, computed, onMounted } from 'vue';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import AppButton from '../components/ui/AppButton.vue';
+import { useAuthStore } from '../stores/auth';
+
+const authStore = useAuthStore();
 
 const ambientes        = ref([]);
 const mesas            = ref([]);
@@ -484,7 +487,10 @@ async function crearAmbiente() {
   }
   loadingAmbiente.value = true;
   try {
-    const res = await axios.post('/api/ambientes', nuevoAmbiente.value);
+    const res = await axios.post('/api/ambientes', {
+      ...nuevoAmbiente.value,
+      sucursal_id: authStore.sucursalId,
+    });
     ambientes.value.push(res.data);
     ambienteActivo.value = res.data.id;
     mostrarModalAmbiente.value = false;

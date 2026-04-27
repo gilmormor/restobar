@@ -8,9 +8,19 @@ class Sucursal extends Model
 {
     protected $table = 'sucursales';
 
-    protected $fillable = ['nombre', 'direccion', 'telefono', 'email', 'logo', 'activa'];
+    protected $fillable = [
+        'nombre', 'abrev', 'direccion', 'telefono', 'telefonos',
+        'email', 'logo', 'activa',
+        'empresa_id', 'region_id', 'provincia_id', 'comuna_id',
+        'usuario_id', 'usuariodel_id',
+    ];
 
     protected $casts = ['activa' => 'boolean'];
+
+    public function empresa()   { return $this->belongsTo(Empresa::class,  'empresa_id'); }
+    public function region()    { return $this->belongsTo(Region::class,   'region_id'); }
+    public function provincia() { return $this->belongsTo(Provincia::class,'provincia_id'); }
+    public function comuna()    { return $this->belongsTo(Comuna::class,   'comuna_id'); }
 
     public function bodegas()
     {

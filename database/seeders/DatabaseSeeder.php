@@ -604,5 +604,12 @@ class DatabaseSeeder extends Seeder
                 'updated_at'  => now(),
             ]);
         }
+
+        // ─── 14. DATOS GEOGRÁFICOS Y EMPRESARIALES ────────────────────────────
+        $this->call([
+            PaisesYMonedasSeeder::class,
+            ChileGeoSeeder::class,
+            ColombiaGeoSeeder::class,
+        ]);
     }
 }

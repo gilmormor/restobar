@@ -20,6 +20,9 @@ use App\Http\Controllers\Api\MenuController;
 use App\Http\Controllers\Api\InventarioCierreController;
 use App\Http\Controllers\Api\PermisoController;
 use App\Http\Controllers\Api\MenuAdminController;  // CRUD árbol de menús
+use App\Http\Controllers\Api\EmpresaController;
+use App\Http\Controllers\Api\MonedaController;
+use App\Http\Controllers\Api\GeoController;
 
 // ─── Auth ────────────────────────────────────────────────────────────────────
 Route::post('auth/login',  [LoginController::class, 'login']);
@@ -50,6 +53,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('menus/reordenar',   [MenuAdminController::class, 'reordenar']);
     Route::apiResource('menus',      MenuAdminController::class);
     Route::apiResource('sucursales', SucursalController::class);
+    Route::apiResource('empresas',   EmpresaController::class);
+    Route::apiResource('monedas',    MonedaController::class);
+
+    // Geografía (solo lectura, filtrable)
+    Route::get('geo/paises',     [GeoController::class, 'paises']);
+    Route::get('geo/regiones',   [GeoController::class, 'regiones']);
+    Route::get('geo/provincias', [GeoController::class, 'provincias']);
+    Route::get('geo/comunas',    [GeoController::class, 'comunas']);
     Route::apiResource('bodegas',    BodegaController::class);
     Route::get('configuracion',      [ConfiguracionController::class, 'index']);
     Route::put('configuracion',      [ConfiguracionController::class, 'update']);
